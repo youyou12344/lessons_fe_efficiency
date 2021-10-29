@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>测试 example-externals 的具体实现</title>
+  <!-- 1、引入第三方库 jquery 的 cdn 文件 （ externals 配置中不包含依赖框架的生成方式，通常使用已传入 CDN 的依赖包。） -->
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <!-- 2、虽然包中没有 jquery ， 基于上面的引入， example-externals 可以正常执行。 -->
+  <script src="../dist/example-externals.js"></script>
+</head>
+<body>
+</body>
+</html>

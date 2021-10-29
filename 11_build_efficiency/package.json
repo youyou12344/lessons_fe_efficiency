@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build:lodash": "webpack --config webpack.lodash.config.js",
+    "build": "bash build.sh",
     "build:ignore": "webpack --config webpack.ignore.config.js",
+    "build:lodash": "webpack --config webpack.lodash.config.js",
     "build:dll": "webpack --config webpack.dll.config.js",
     "build:dllref": "webpack --config webpack.dllref.config.js",
     "build:externals": "webpack --config webpack.externals.config.js",

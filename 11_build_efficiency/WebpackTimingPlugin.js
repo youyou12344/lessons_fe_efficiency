@@ -19,10 +19,10 @@ class WebpackTimingPlugin {
         const modulePath = getModulePath(module)
         const moduleStart = moduleTimings[modulePath]
         console.log(
-          'Build Module',
+          'Build Module 构建模块',
           modulePath,
           `${chalk.red(Date.now() - moduleStart)}ms`,
-          `Total Timing: ${Date.now() - applyStart}ms\n`
+          `Total Timing 总耗时: ${Date.now() - applyStart}ms`
         )
       })
     })

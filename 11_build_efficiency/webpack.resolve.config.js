@@ -6,18 +6,11 @@ module.exports = merge(common, {
     'example-resolve': './src/example-resolve.js',
   },
   resolve: {
-    modules: Array(100)
-      .fill('')
-      .map((item, index) => '../node_modules' + index)
-      .concat(['../node_modules']),
-    extensions: Array(100)
-      .fill('')
-      .map((item, index) => '.ex' + index)
-      .concat(['.js']),
-    mainFiles: Array(100)
-      .fill('')
-      .map((item, index) => 'index' + index)
-      .concat(['index']),
+    // 指定查找模块
+
+    modules: ['../node_modules'],
+    extensions: ['.js'],
+    mainFiles: ['index'],
     symlinks: false,
   },
 })

@@ -27661,7 +27661,7 @@ var Print = /*#__PURE__*/function () {
   _createClass(Print, [{
     key: "action",
     value: function action() {
-      console.log(1221335, moment__WEBPACK_IMPORTED_MODULE_0___default()().format('YYYY-MM-DD'));
+      console.log(124225, moment__WEBPACK_IMPORTED_MODULE_0___default()().format('YYYY-MM-DD'));
     }
   }]);
 

@@ -5,8 +5,8 @@ module.exports = merge(common, {
   entry: {
     'example-noparse': './src/example-noparse.js',
   },
-  mode: 'development',
-  devtool: 'source-map',
+  // mode: 'development',
+  // devtool: 'source-map',
   module: {
     noParse: /jquery|lodash/, // 2、不使用 Webpack 默认 js 模块编译器进行编译
     // 注意： 可以使用 babel-loader 编译(即注释掉exclude配置)，但不使用 Webpack 默认 编译。速度超慢！！！
