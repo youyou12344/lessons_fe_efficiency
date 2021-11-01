@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "bash build.sh",
     "build:jscomp": "webpack --config webpack.jscompress.config.js",
     "build:terser": "webpack --config webpack.terser-opts.config.js",
     "build:css": "webpack --config webpack.css.config.js",

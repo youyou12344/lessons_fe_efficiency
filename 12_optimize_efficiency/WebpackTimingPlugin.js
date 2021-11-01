@@ -1,3 +1,4 @@
+// 打包阶段 时间分析
 const chalk = require('chalk')
 
 const PluginName = 'TimingPlugin'
@@ -17,63 +18,92 @@ class WebpackTiming {
       )
     })
     compiler.hooks.compilation.tap(PluginName, (compilation) => {
-      const lifeHooks = [
-        {
+      // 优化阶段可以细分为 12 个子任务
+      const lifeHooks = [{
           name: 'optimizeDependencies',
+          nameZh: '优化 依赖项',
           start: 'optimizeDependencies',
           end: 'afterOptimizeDependencies',
         },
-        { name: 'createChunks', start: 'beforeChunks', end: 'afterChunks' },
-        { name: 'optimizeModules', start: 'optimize', end: 'optimizeChunks' },
+        {
+          name: 'createChunks',
+          nameZh: '生成 Chunk',
+          start: 'beforeChunks',
+          end: 'afterChunks'
+        },
+        {
+          name: 'optimizeModules',
+          nameZh: '优化 Module',
+          start: 'optimize',
+          end: 'optimizeChunks'
+        },
         {
           name: 'optimizeChunks',
+          nameZh: '优化 Chunk',
           start: 'optimizeChunks',
           end: 'afterOptimizeChunks',
         },
         {
           name: 'optimizeTree',
+          nameZh: '优化 Tree',
           start: 'optimizeTree',
           end: 'afterOptimizeTree',
         },
         {
           name: 'optimizeChunkModules',
+          nameZh: '优化 ChunkModules',
           start: 'optimizeChunkModules',
           end: 'afterOptimizeChunkModules',
         },
         {
           name: 'moduleIds',
+          nameZh: '生成 Module Ids',
           start: 'beforeModuleIds',
           end: 'afterOptimizeModuleIds',
         },
         {
           name: 'chunkIds',
+          nameZh: '生成 Chunk Ids',
           start: 'beforeChunkIds',
           end: 'afterOptimizeChunkIds',
         },
-        { name: 'hash', start: 'beforeHash', end: 'afterHash' },
+        {
+          name: 'hash',
+          nameZh: '生成 hash',
+          start: 'beforeHash',
+          end: 'afterHash'
+        },
         {
           name: 'moduleAssets',
+          nameZh: '生成 ModuleAssets',
           start: 'beforeModuleAssets',
           end: 'shouldGenerateChunkAssets',
         },
         {
           name: 'chunkAssets',
+          nameZh: '生成 ChunkAssets',
           start: 'beforeChunkAssets',
           end: 'additionalAssets',
         },
         {
           name: 'optimizeChunkAssets',
+          nameZh: '优化 ChunkAssets',
           start: 'optimizeChunkAssets',
           end: 'afterOptimizeChunkAssets',
         },
         {
           name: 'optimizeAssets',
+          nameZh: '优化 Assets',
           start: 'optimizeAssets',
           end: 'afterOptimizeAssets',
         },
       ]
 
-      lifeHooks.forEach(({ name, start, end }) => {
+      lifeHooks.forEach(({
+        name,
+        start,
+        end
+      }) => {
         let startTime
         if (!compilation.hooks[start]) {
           console.log('no hooks', start)
